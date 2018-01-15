@@ -2,7 +2,7 @@
     <div>
         <h1>{{test}}</h1>
         <ul>
-            <li v-for="car in cars" >{{car.name }}</li>
+            <li v-for="car in cars" >{{ car.name }}</li>
         </ul>
     </div>
 </template>
