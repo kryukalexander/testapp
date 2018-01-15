@@ -2,7 +2,7 @@
     <div>
         <h1>{{test}}</h1>
         <ul>
-            <li v-for="todo in todos" >{{ todo.text }}</li>
+            <li v-for="car in cars" >{{car.name }}</li>
         </ul>
     </div>
 </template>
@@ -21,16 +21,20 @@
 
     let app = Firebase.initializeApp(config);
     let db = app.database();
-    let todos = db.ref('todo-list');
+    let carsRef = db.ref('cars');
 
     export default {
         name: 'todo',
+        firebase: {
+            cars: carsRef,
+        },
         data () {
             return {
-                todos: todos,
                 test: 'It works'
             }
         },
+
+
     }
 </script>
 
