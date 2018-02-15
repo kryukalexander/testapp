@@ -1,8 +1,13 @@
 <template>
-    <div>
+    <div class="cars-list">
         <h1>{{test}}</h1>
         <ul>
-            <li v-for="car in cars" >{{ car.name }}</li>
+            <li v-for="car in cars" >
+                <router-link :to="'cars/' + car.name">Go to {{ car.name }}</router-link>
+                <ul>
+                    <li v-for="model in car.models">{{model.name}}</li>
+                </ul>
+            </li>
         </ul>
     </div>
 </template>
@@ -24,7 +29,7 @@
     let carsRef = db.ref('cars');
 
     export default {
-        name: 'todo',
+        name: 'Home',
         firebase: {
             cars: carsRef,
         },
@@ -40,5 +45,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .cars-list {
+        width: 400px;
+        max-width: 100%;
+        text-align: left;
+    }
 </style>
